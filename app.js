@@ -1,9 +1,11 @@
-var http = require('http');
+const express = require('express')
+const app = express()
+const port = 3000
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello World! from node  server');
-}).listen(8000);
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-console.log('This example is different!');
-console.log('The result is displayed in the Command Line Interface');
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
